@@ -121,7 +121,9 @@ else
 TARGET_BOOTLOADER = uboot
 endif
 
-ifeq ($(BLDENV), bullseye)
+ifeq ($(BLDENV), bookworm)
+SLAVE_DIR = sonic-slave-bookworm
+else ifeq ($(BLDENV), bullseye)
 SLAVE_DIR = sonic-slave-bullseye
 else ifeq ($(BLDENV), buster)
 SLAVE_DIR = sonic-slave-buster
