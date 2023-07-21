@@ -180,6 +180,12 @@ INCLUDE_FIPS := n
 ENABLE_FIPS := n
 endif
 
+# FIPS not yet available on Bookworm
+ifeq ($(BLDENV),bookworm)
+$(warning FIPS support not yet available on Bookworm)
+INCLUDE_FIPS := n
+endif
+
 ifeq ($(INCLUDE_FIPS), n)
 ifeq ($(ENABLE_FIPS), y)
     $(error Cannot set fips config ENABLE_FIPS=y when INCLUDE_FIPS=n)
