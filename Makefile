@@ -4,7 +4,7 @@ NOJESSIE ?= 1
 NOSTRETCH ?= 1
 NOBUSTER ?= 0
 NOBULLSEYE ?= 0
-NOBOOKWORM ?= 1
+NOBOOKWORM ?= 0
 
 override Q := @
 ifeq ($(QUIET),n)
@@ -52,12 +52,12 @@ ifeq ($(NOBUSTER), 0)
 	$(MAKE_WITH_RETRY) EXTRA_DOCKER_TARGETS=$(notdir $@) BLDENV=buster -f Makefile.work buster
 endif
 ifeq ($(NOBULLSEYE), 0)
-	$(MAKE_WITH_RETRY) BLDENV=bullseye -f Makefile.work $@
+	$(MAKE_WITH_RETRY) EXTRA_DOCKER_TARGETS=$(notdir $@) BLDENV=bullseye -f Makefile.work bullseye
 endif
 ifeq ($(NOBOOKWORM), 0)
-	$(MAKE_WITH_RETRY) BLDENV=bullseye -f Makefile.work $@
+	$(MAKE_WITH_RETRY) BLDENV=bookworm -f Makefile.work $@
 endif
-	BLDENV=bullseye $(MAKE) -f Makefile.work docker-cleanup
+	BLDENV=bookworm $(MAKE) -f Makefile.work docker-cleanup
 
 jessie:
 	@echo "+++ Making $@ +++"
@@ -75,6 +75,12 @@ buster:
 	@echo "+++ Making $@ +++"
 ifeq ($(NOBUSTER), 0)
 	$(MAKE) -f Makefile.work buster
+endif
+
+bullseye:
+	@echo "+++ Making $@ +++"
+ifeq ($(NOBUSTER), 0)
+	$(MAKE) -f Makefile.work bullseye
 endif
 
 init:
