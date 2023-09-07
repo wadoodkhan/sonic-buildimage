@@ -63,7 +63,7 @@ setup(
     ],
     tests_require = [
         'pytest',
-        'ijson==2.6.1'
+        'ijson==3.2.3'
     ],
     setup_requires = [
         'pytest-runner',
