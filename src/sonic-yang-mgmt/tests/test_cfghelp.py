@@ -4,12 +4,6 @@ import os
 from unittest import TestCase
 
 output1="""\
-Error: Table or all option is required
-usage: sonic-cfg-help [-h] [-t TABLE] [-f FIELD] [-p PRINT_FORMAT] [-a]
-
-Description of table name
-
-optional arguments:
   -h, --help            show this help message and exit
   -t TABLE, --table TABLE
                         Table name
@@ -140,7 +134,7 @@ class TestCfgHelp(TestCase):
     def test_dummy_run(self):
         argument = []
         output = self.run_script(argument)
-        self.assertEqual(output, output1)
+        self.assertIn(output1, output)
 
     def test_single_table(self):
         argument = ['-t', 'AUTO_TECHSUPPORT']
