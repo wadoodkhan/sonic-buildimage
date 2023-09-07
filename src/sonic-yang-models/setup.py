@@ -69,6 +69,12 @@ setup(
         'pytest-runner',
         'wheel'
     ],
+    extras_require = {
+        "testing": [
+            'pytest',
+            'ijson==3.2.3'
+        ],
+    },
     include_package_data=True,
     keywords='sonic-yang-models',
     name='sonic-yang-models',
