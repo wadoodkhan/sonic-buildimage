@@ -43,7 +43,7 @@ variables:
 - name: CACHE_MODE
   value: rcache
 - name: ENABLE_FIPS
-  value: y
+  value: n
 
 stages:
 - stage: BuildVS
