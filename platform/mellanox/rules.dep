@@ -1,8 +1,9 @@
 # DPKG FRK
 
+# TODO: update for Bookworm: mft
 include $(PLATFORM_PATH)/sdk.dep
 include $(PLATFORM_PATH)/fw.dep
-include $(PLATFORM_PATH)/mft.dep
+#include $(PLATFORM_PATH)/mft.dep
 include $(PLATFORM_PATH)/mlnx-sai.dep
 include $(PLATFORM_PATH)/hw-management.dep
 include $(PLATFORM_PATH)/mlnx-platform-api.dep

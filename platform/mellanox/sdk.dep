@@ -210,13 +210,14 @@ endif
 
 # SX_KERNEL
 
-SPATH := $($(SX_KERNEL)_SRC_PATH)
-SLINKS := $(shell find $(SPATH) -type l -exec echo {} \; | grep -Ev ' ')
-SMDEP_PATHS := $(shell git submodule status --recursive -- $(SPATH) | awk '{print $$2}' | grep -Ev ' ')
-SMDEP_FILES := $(foreach path,$(SMDEP_PATHS),$(filter-out $(SMDEP_PATHS),$(addprefix $(path)/,$(shell cd $(path) && git ls-files | grep -Ev ' '))))
-DEP_FILES := $(SONIC_COMMON_FILES_LIST) $(PLATFORM_PATH)/sdk.mk $(PLATFORM_PATH)/sdk.dep
-DEP_FILES += $(SONIC_COMMON_BASE_FILES_LIST)
-DEP_FILES += $(filter-out $(SMDEP_PATHS),$(shell git ls-files -- $(SPATH) | grep -Ev ' '))
+# TODO: enable for bookworm
+#SPATH := $($(SX_KERNEL)_SRC_PATH)
+#SLINKS := $(shell find $(SPATH) -type l -exec echo {} \; | grep -Ev ' ')
+#SMDEP_PATHS := $(shell git submodule status --recursive -- $(SPATH) | awk '{print $$2}' | grep -Ev ' ')
+#SMDEP_FILES := $(foreach path,$(SMDEP_PATHS),$(filter-out $(SMDEP_PATHS),$(addprefix $(path)/,$(shell cd $(path) && git ls-files | grep -Ev ' '))))
+#DEP_FILES := $(SONIC_COMMON_FILES_LIST) $(PLATFORM_PATH)/sdk.mk $(PLATFORM_PATH)/sdk.dep
+#DEP_FILES += $(SONIC_COMMON_BASE_FILES_LIST)
+#DEP_FILES += $(filter-out $(SMDEP_PATHS),$(shell git ls-files -- $(SPATH) | grep -Ev ' '))
 
 $(SX_KERNEL)_CACHE_MODE := GIT_CONTENT_SHA
 $(SX_KERNEL)_DEP_FLAGS := $(MLNX_SDK_COMMON_FLAGS_LIST)
