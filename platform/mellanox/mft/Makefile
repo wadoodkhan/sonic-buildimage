@@ -34,15 +34,31 @@ MFT_TGZ_URL = http://www.mellanox.com/downloads/MFT/$(MFT_TGZ)
 endif
 
 SRC_DEB = kernel-mft-dkms_$(MFT_VERSION)-$(MFT_REVISION)_all.deb
-MOD_DEB = kernel-mft-dkms-modules-$(KVERSION)_$(MFT_VERSION)_$(CONFIGURED_ARCH).deb
+KERNEL_MFT_TARGET = kernel-mft-dkms-modules-$(KVERSION)_$(MFT_VERSION)_$(CONFIGURED_ARCH).deb
 
 MAIN_TARGET = mft_$(MFT_VERSION)-$(MFT_REVISION)_$(CONFIGURED_ARCH).deb
-DERIVED_TARGETS = $(MOD_DEB) mft-oem_$(MFT_VERSION)-$(MFT_REVISION)_$(CONFIGURED_ARCH).deb
+DERIVED_TARGETS = mft-oem_$(MFT_VERSION)-$(MFT_REVISION)_$(CONFIGURED_ARCH).deb
 
 DKMS_CTRL = /var/lib/dkms/kernel-mft-dkms/
 DKMS_TMP := $(shell mktemp -u -d -t dkms.XXXXXXXXXX)
 
+MFT_TMP = /tmp/mft_build/
+
 $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
+	mkdir -p $(MFT_TMP)
+	pushd $(MFT_TMP)
+	wget -O $(MFT_TGZ) $(MFT_TGZ_URL)
+	tar xzf $(MFT_TGZ)
+
+	# fix timestamp
+	touch $(MFT_NAME)/DEBS/*.deb
+	mv $(MFT_NAME)/DEBS/*.deb $(DEST)
+	popd
+	rm -rf $(MFT_TMP)
+
+$(addprefix $(DEST)/, $(DERIVED_TARGETS)): $(DEST)/% : $(DEST)/$(MAIN_TARGET)
+
+$(addprefix $(DEST)/, $(KERNEL_MFT_TARGET)): $(DEST)/% :
 	rm -rf $(MFT_NAME)
 	wget -O $(MFT_TGZ) $(MFT_TGZ_URL)
 	tar xzf $(MFT_TGZ)
@@ -81,8 +97,6 @@ $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
 
 	rm -rf $(DKMS_TMP)
 
-	# fix timestamp because we do not actually build tools, only kernel
-	touch $(MFT_NAME)/DEBS/*.deb
-	mv $(MFT_NAME)/DEBS/*.deb $(DEST)
+	mv $(MFT_NAME)/DEBS/$(KERNEL_MFT_TARGET) $(DEST)
 
-$(addprefix $(DEST)/, $(DERIVED_TARGETS)): $(DEST)/% : $(DEST)/$(MAIN_TARGET)
+
