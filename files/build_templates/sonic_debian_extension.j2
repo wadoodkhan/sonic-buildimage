@@ -164,7 +164,7 @@ sudo rm -rf $FILESYSTEM_ROOT/$SONIC_YANG_MGMT_PY3_WHEEL_NAME
 # Then immediately uninstall enum34, as enum34 should not be installed for Python >= 3.4, as it causes a
 # conflict with the new 'enum' module in the standard library
 # https://github.com/robshakir/pyangbind/issues/232
-sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install pyangbind==0.8.1
+sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install pyangbind==0.8.2
 sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 uninstall -y enum34
 
 # Install SONiC config engine Python 3 package
