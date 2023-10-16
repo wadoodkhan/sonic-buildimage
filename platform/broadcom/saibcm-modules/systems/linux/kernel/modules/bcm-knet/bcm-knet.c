@@ -5464,7 +5464,7 @@ bkn_set_mac_address(struct net_device *dev, void *addr)
 #endif
         return -EINVAL;
     }
-    memcpy(dev->dev_addr, ((struct sockaddr *)addr)->sa_data, dev->addr_len);
+    eth_hw_addr_set(ndev, ((struct sockaddr *)addr)->sa_data);
     return 0;
 }
 #endif
@@ -6743,7 +6743,7 @@ bkn_init_ndev(u8 *mac, char *name)
 #endif
 
     /* Set the device MAC address */
-    memcpy(dev->dev_addr, mac, 6);
+    eth_hw_addr_set(ndev, mac);
 
     /* Device information -- not available right now */
     dev->irq = 0;
