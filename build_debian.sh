@@ -548,13 +548,12 @@ sudo cp files/dhcp/sethostname6 $FILESYSTEM_ROOT/etc/dhcp/dhclient-exit-hooks.d/
 sudo cp files/dhcp/graphserviceurl $FILESYSTEM_ROOT/etc/dhcp/dhclient-exit-hooks.d/
 sudo cp files/dhcp/snmpcommunity $FILESYSTEM_ROOT/etc/dhcp/dhclient-exit-hooks.d/
 sudo cp files/dhcp/vrf $FILESYSTEM_ROOT/etc/dhcp/dhclient-exit-hooks.d/
-if [ -f files/image_config/ntp/ntp ]; then
-    sudo cp ./files/image_config/ntp/ntp $FILESYSTEM_ROOT/etc/init.d/
+if [ -f files/image_config/ntp/ntpsec ]; then
+    sudo cp ./files/image_config/ntp/ntpsec $FILESYSTEM_ROOT/etc/init.d/
 fi
 
 if [ -f files/image_config/ntp/ntp-systemd-wrapper ]; then
-    sudo mkdir -p $FILESYSTEM_ROOT/usr/lib/ntp/
-    sudo cp ./files/image_config/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/lib/ntp/
+    sudo cp ./files/image_config/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/libexec/ntpsec/
 fi
 
 ## Version file part 1

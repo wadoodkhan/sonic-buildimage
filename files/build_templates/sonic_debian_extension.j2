@@ -228,7 +228,7 @@ sudo cp -f $IMAGE_CONFIGS/readline/inputrc $FILESYSTEM_ROOT/etc/
 
 # Install prerequisites needed for installing the dependent Python packages of sonic-host-services
 # These packages can be uninstalled after installation
-sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install libcairo2-dev libdbus-1-dev libgirepository1.0-dev libsystemd-dev pkg-config
+sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install libcairo2-dev libdbus-1-dev libgirepository1.0-dev libsystemd-dev pkg-config python3-dbus
 
 # Mark runtime dependencies as manually installed to avoid them being auto-removed while uninstalling build dependencies
 sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-mark manual gir1.2-glib-2.0 libdbus-1-3 libgirepository-1.0-1 libsystemd0 python3-dbus
@@ -265,8 +265,7 @@ sudo dpkg --root=$FILESYSTEM_ROOT -i $debs_path/sonic-device-data_*.deb || \
     sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install -f
 
 # package for supporting password hardening
-# TODO: replace with either pam_pwquality or pam_passwdqc
-#sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install libpam-cracklib
+sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install libpam-pwquality
 
 # Install pam-tacplus and nss-tacplus
 sudo dpkg --root=$FILESYSTEM_ROOT -i $debs_path/libtac2_*.deb || \
@@ -302,17 +301,16 @@ sudo dpkg --root=$FILESYSTEM_ROOT -i $debs_path/libnss-radius_*.deb || \
 sudo sed -i -e '/^passwd/s/ radius//' $FILESYSTEM_ROOT/etc/nsswitch.conf
 
 # Install a custom version of kdump-tools  (and its dependencies via 'apt-get -y install -f')
-# TODO: enable once kdump-tools is upgraded for bookworm
-#if [[ $TARGET_BOOTLOADER == grub ]]; then
-#sudo DEBIAN_FRONTEND=noninteractive dpkg --root=$FILESYSTEM_ROOT -i $debs_path/kdump-tools_*.deb || \
-#    sudo LANG=C DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true chroot $FILESYSTEM_ROOT apt-get -q --no-install-suggests --no-install-recommends install
-#    cat $IMAGE_CONFIGS/kdump/kdump-tools | sudo tee -a $FILESYSTEM_ROOT/etc/default/kdump-tools > /dev/null
-#
-#for kernel_release in $(ls $FILESYSTEM_ROOT/lib/modules/); do
-#	sudo LANG=C chroot $FILESYSTEM_ROOT /etc/kernel/postinst.d/kdump-tools $kernel_release > /dev/null 2>&1
-#	sudo LANG=C chroot $FILESYSTEM_ROOT kdump-config symlinks $kernel_release
-#done
-#fi
+if [[ $TARGET_BOOTLOADER == grub ]]; then
+sudo DEBIAN_FRONTEND=noninteractive dpkg --root=$FILESYSTEM_ROOT -i $debs_path/kdump-tools_*.deb || \
+    sudo LANG=C DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true chroot $FILESYSTEM_ROOT apt-get -q --no-install-suggests --no-install-recommends install
+    cat $IMAGE_CONFIGS/kdump/kdump-tools | sudo tee -a $FILESYSTEM_ROOT/etc/default/kdump-tools > /dev/null
+
+for kernel_release in $(ls $FILESYSTEM_ROOT/lib/modules/); do
+	sudo LANG=C chroot $FILESYSTEM_ROOT /etc/kernel/postinst.d/kdump-tools $kernel_release > /dev/null 2>&1
+	sudo LANG=C chroot $FILESYSTEM_ROOT kdump-config symlinks $kernel_release
+done
+fi
 
 # Install python-swss-common package and all its dependent packages
 {% if python_swss_debs.strip() -%}
@@ -378,9 +376,10 @@ sudo cp $IMAGE_CONFIGS/ntp/ntp-config.service $FILESYSTEM_ROOT_USR_LIB_SYSTEMD_S
 echo "ntp-config.service" | sudo tee -a $GENERATED_SERVICE_FILE
 sudo cp $IMAGE_CONFIGS/ntp/ntp-config.sh $FILESYSTEM_ROOT/usr/bin/
 sudo cp $IMAGE_CONFIGS/ntp/ntp.conf.j2 $FILESYSTEM_ROOT_USR_SHARE_SONIC_TEMPLATES/
-sudo cp $IMAGE_CONFIGS/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/lib/ntp/
-sudo cp $IMAGE_CONFIGS/ntp/ntp.service $FILESYSTEM_ROOT_USR_LIB_SYSTEMD_SYSTEM
-echo "ntp.service" | sudo tee -a $GENERATED_SERVICE_FILE
+sudo cp $IMAGE_CONFIGS/ntp/ntp-systemd-wrapper $FILESYSTEM_ROOT/usr/libexec/ntpsec/
+sudo mkdir $FILESYSTEM_ROOT_USR_LIB_SYSTEMD_SYSTEM/ntpsec.service.d
+sudo cp $IMAGE_CONFIGS/ntp/sonic-target.conf $FILESYSTEM_ROOT_USR_LIB_SYSTEMD_SYSTEM/ntpsec.service.d/
+echo "ntpsec.service" | sudo tee -a $GENERATED_SERVICE_FILE
 
 # Copy DNS templates
 sudo cp $BUILD_TEMPLATES/dns.j2 $FILESYSTEM_ROOT_USR_SHARE_SONIC_TEMPLATES/

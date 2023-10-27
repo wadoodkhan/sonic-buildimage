@@ -1317,7 +1317,6 @@ $(addprefix $(TARGET_PATH)/, $(SONIC_RFS_TARGETS)) : $(TARGET_PATH)/% : \
 
 # targets for building installers with base image
 # TODO: the following have been disabled for Bookworm for now:
-# $(KDUMP_TOOLS)
 # $(NTP)
 $(addprefix $(TARGET_PATH)/, $(SONIC_INSTALLERS)) : $(TARGET_PATH)/% : \
         .platform \
@@ -1334,6 +1333,7 @@ $(addprefix $(TARGET_PATH)/, $(SONIC_INSTALLERS)) : $(TARGET_PATH)/% : \
                 $(LINUX_KERNEL) \
                 $(SONIC_DEVICE_DATA) \
                 $(IFUPDOWN2) \
+                $(KDUMP_TOOLS) \
                 $(LIBPAM_RADIUS) \
                 $(LIBNSS_RADIUS) \
                 $(LIBNSS_TACPLUS) \
