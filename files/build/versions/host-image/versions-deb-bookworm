@@ -75,6 +75,7 @@ iputils-ping==3:20221126-1
 isc-dhcp-client==4.4.3-P1-2
 j2cli==0.3.12b-4
 jq==1.6-2.1
+kdump-tools==1:1.8.1
 kernel-mft-dkms-modules-6.1.0-11-2-amd64==4.25.0
 kexec-tools==1:2.0.25-3+b1
 klibc-utils==2.0.12-1
@@ -101,6 +102,7 @@ libcap2-bin==1:2.66-4
 libcbor0.8==0.8.0-2+b1
 libcc1-0==12.2.0-14
 libcgroup2==2.0.2-2
+libcrack2==2.9.6-5+b1
 libcrypt-dev==1:4.4.33-2
 libcryptsetup12==2:2.6.1-4~deb12u1
 libctf-nobfd0==2.40-2
@@ -181,6 +183,7 @@ libnss-tacplus==1.0.4-1
 libnuma1==2.0.16-1
 libonig5==6.9.8-1
 libopencsd1==1.3.3-1
+libpam-pwquality==1.4.5-1+b1
 libpam-radius-auth==1.4.1-1
 libpam-tacplus==1.4.1-1
 libpcap0.8==1.10.3-1
@@ -193,6 +196,8 @@ libproc2-0==2:4.0.2-3
 libprotobuf32==3.21.12-3
 libprotoc32==3.21.12-3
 libpsl5==0.21.2-1
+libpwquality-common==1.4.5-1
+libpwquality1==1.4.5-1+b1
 libpython3-stdlib==3.11.2-1+b1
 libpython3.11==3.11.2-6
 libpython3.11-minimal==3.11.2-6
@@ -209,8 +214,8 @@ libslang2==2.3.3-3
 libsodium23==1.0.18-1
 libsqlite3-0==3.40.1-2
 libssh2-1==1.10.0-3+b1
-libssl-dev==3.0.11-1~deb12u1
-libssl3==3.0.11-1~deb12u1
+libssl-dev==3.0.11-1~deb12u2
+libssl3==3.0.11-1~deb12u2
 libswsscommon==1.0.0
 libsysfs2==2.1.1-4
 libsystemd-shared==252.17-1~deb12u1
@@ -269,7 +274,7 @@ ntpstat==0.0.0.1-2+b1
 openssh-client==1:9.2p1-2+deb12u1
 openssh-server==1:9.2p1-2+deb12u1
 openssh-sftp-server==1:9.2p1-2+deb12u1
-openssl==3.0.11-1~deb12u1
+openssl==3.0.11-1~deb12u2
 pci.ids==0.0~2023.04.11-1
 pciutils==1:3.9.0-4
 picocom==3.1-4
@@ -316,6 +321,7 @@ smartmontools==7.3-1+b1
 sonic-db-cli==1.0.0
 sonic-device-data==1.0-1
 sonic-host-services-data==1.0-1
+sonic-platform-pddf==1.1
 sonic-rsyslog-plugin==1.0.0-0
 sonic-utilities-data==1.0-1
 sqlite3==3.40.1-2

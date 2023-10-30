@@ -20,3 +20,5 @@ linux-headers-6.1.0-11-2-common==6.1.38-4
 net-tools==2.10-0.1
 python3-swsscommon==1.0.0
 python3-yang==1.0.73
+sonic-platform-pddf==1.1
+sonic-platform-pddf-sym==1.1

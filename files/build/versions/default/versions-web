@@ -21,6 +21,8 @@ https://archive.apache.org/dist/thrift/0.14.1/thrift-0.14.1.tar.gz==c64434548438
 https://bootstrap.pypa.io/pip/2.7/get-pip.py==60e8267eb1b7bc71dc4843eb7bd294d3
 https://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.123+deb11u1.dsc==27f74ae171f50bfc1116d3e23dbbab3f
 https://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.123+deb11u1.tar.gz==37b56a6cf74721c6496d05d032cd22af
+https://deb.debian.org/debian/pool/main/k/kdump-tools/kdump-tools_1.8.1.dsc==cf20d7dc926e6efb6946622f25728074
+https://deb.debian.org/debian/pool/main/k/kdump-tools/kdump-tools_1.8.1.tar.xz==bf690b241ae1ef3ac9226ba40995575a
 https://deb.nodesource.com/gpgkey/nodesource.gpg.key==003b51a89a133b5db4cca98b2dea3117
 https://deb.nodesource.com/node_14.x/dists/bookworm/Release==249bac8daff55b81a1b40c2c283e317d
 https://deb.nodesource.com/node_14.x/dists/bullseye/Release==6b7d50c433d129d4c6fd95bdf56070fa
@@ -32,6 +34,7 @@ https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-a
 https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-arm64==e07f07d9f758cdcf57ba5d2ff9f3d491
 https://github.com/CumulusNetworks/ifupdown2/archive/3.0.0-1.tar.gz==755459b3a58fbc11625336846cea7420
 https://github.com/Marvell-switching/sonic-marvell-binaries/raw/master/arm64/sai-plugin/mrvllibsai_1.12.0-2_arm64.deb==60c59c062572deac78c25b8c52bcb76f
+https://github.com/Marvell-switching/sonic-marvell-binaries/raw/master/armhf/sai-plugin/mrvllibsai_1.12.0-2_armhf.deb==e2890daebc864898775d8b0a7379d4aa
 https://github.com/Mellanox/Spectrum-SDK-Drivers-SONiC-Bins/releases/download/fw-2012.1062/fw-SPC-rel-13_2012_1062-EVB.mfa==ded5ea46c37ba564a29e306ad233a83c
 https://github.com/Mellanox/Spectrum-SDK-Drivers-SONiC-Bins/releases/download/fw-2012.1062/fw-SPC2-rel-29_2012_1062-EVB.mfa==74700208646225d39afff0154642648a
 https://github.com/Mellanox/Spectrum-SDK-Drivers-SONiC-Bins/releases/download/fw-2012.1062/fw-SPC3-rel-30_2012_1062-EVB.mfa==3de91549a489dc45250e3e1ca11b74e3
@@ -90,6 +93,7 @@ https://sonicstorage.blob.core.windows.net/packages/onie/onie-recovery-x86_64-kv
 https://sonicstorage.blob.core.windows.net/packages/onie/onie-recovery-x86_64-kvm_x86_64_4_asic-r0.iso?sv=2020-04-08&st=2021-08-27T22%3A41%3A07Z&se=2030-08-28T22%3A41%3A00Z&sr=b&sp=r&sig=zyaX7rHnE5jXldpgrnWq1nvsfmMTrVCSuESZqrIxDLc%3D==1d8b8d3fa37f842d0184b5205be22be9
 https://sonicstorage.blob.core.windows.net/packages/onie/onie-recovery-x86_64-kvm_x86_64_6_asic-r0.iso?sv=2020-04-08&st=2021-08-27T22%3A42%3A24Z&se=2030-08-28T22%3A42%3A00Z&sr=b&sp=r&sig=RqbtHJt8Hvy7j78jt3TgXo27T7zjdUDfSxqmOID1YUU%3D==58494305d4ac201daedf9364a1018a1b
 https://sonicstorage.blob.core.windows.net/packages/redis/redis-tools_6.0.6-1_bpo10+1_arm64.deb?sv=2015-04-05&sr=b&sig=GbkJV2wWln3hoz27zKi5erdk3NDKrAFrQriA97bcRCY%3D&se=2030-10-24T04%3A22%3A21Z&sp=r==282b4766cc9ac7d8bb70622bd69d9f5c
+https://sonicstorage.blob.core.windows.net/packages/redis/redis-tools_6.0.6-1_bpo10+1_armhf.deb?sv=2015-04-05&sr=b&sig=67vHAMxsl%2BS3X1KsqhdYhakJkGdg5FKSPgU8kUiw4as%3D&se=2030-10-24T04%3A22%3A40Z&sp=r==62f287117afab6caaec564232ebbb5de
 https://sonicstorage.blob.core.windows.net/packages/redis/redis-tools_6.0.6-1~bpo10+1_amd64.deb?sv=2015-04-05&sr=b&sig=73zbmjkf3pi%2Bn0R8Hy7CWT2EUvOAyzM5aLYJWCLySGM%3D&se=2030-09-06T19%3A44%3A59Z&sp=r==2d58c3c3358290c04d5e0ba70f297f18
 https://sonicstorage.blob.core.windows.net/public/fips/bullseye/0.1/amd64/golang-1.15-go_1.15.15-1~deb11u4%2Bfips_amd64.deb==b60f6db62805696b47ab422ab798fe56
 https://sonicstorage.blob.core.windows.net/public/fips/bullseye/0.1/amd64/golang-1.15-src_1.15.15-1~deb11u4%2Bfips_amd64.deb==1c920937aa49b602a1bfec3c49747131
@@ -134,3 +138,4 @@ https://sonicstorage.blob.core.windows.net/public/fips/bullseye/0.8/arm64/symcry
 https://sonicstorage.blob.core.windows.net/public/sai/bcmpai/REL_3.8/3.8/libsaibroncos_3.8_amd64.deb==f7c3f0ed8c97c2572e3c2e59faaae4a8
 https://storage.googleapis.com/golang/go1.15.15.linux-amd64.tar.gz==b75227438c6129b5013da053b3aa3f38
 https://storage.googleapis.com/golang/go1.15.15.linux-arm64.tar.gz==6d721146a9195592d92a80cf27d475f9
+https://storage.googleapis.com/golang/go1.15.15.linux-armv6l.tar.gz==23d140bbeedc978b954de1a199a22bdb

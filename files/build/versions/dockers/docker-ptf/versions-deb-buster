@@ -19,8 +19,8 @@ cpp==4:8.3.0-1
 cpp-8==8.3.0-6
 cron==3.0pl1-134+deb10u1
 curl==7.64.0-4+deb10u7
-dbus==1.12.24-0+deb10u1
-dbus-user-session==1.12.24-0+deb10u1
+dbus==1.12.28-0+deb10u1
+dbus-user-session==1.12.28-0+deb10u1
 dconf-gsettings-backend==0.30.1-2
 dconf-service==0.30.1-2
 debian-archive-keyring==2019.1+deb10u2
@@ -70,7 +70,7 @@ hping3==3.a2.ds2-7
 ipython3==5.8.0-1+deb10u1
 iso-codes==4.2-1
 javascript-common==11
-krb5-locales==1.17-3+deb10u5
+krb5-locales==1.17-3+deb10u6
 less==487-0.1+b1
 libalgorithm-diff-perl==1.19.03-2
 libalgorithm-diff-xs-perl==0.04-5+b1
@@ -119,7 +119,7 @@ libcurl4==7.64.0-4+deb10u7
 libdaemon0==0.14-7
 libdata-dump-perl==1.23-1
 libdatrie1==0.2.12-2
-libdbus-1-3==1.12.24-0+deb10u1
+libdbus-1-3==1.12.28-0+deb10u1
 libdconf1==0.30.1-2
 libdevmapper1.02.1==2:1.02.155-3
 libdouble-conversion1==3.1.0-3
@@ -184,7 +184,7 @@ libgpm2==1.20.7-5
 libgraphite2-3==1.3.13-7
 libgs9==9.27~dfsg-2+deb10u9
 libgs9-common==9.27~dfsg-2+deb10u9
-libgssapi-krb5-2==1.17-3+deb10u5
+libgssapi-krb5-2==1.17-3+deb10u6
 libgstreamer-plugins-base1.0-0==1.14.4-2+deb10u2
 libgstreamer1.0-0==1.14.4-1
 libgtk-3-0==3.24.5-1
@@ -232,12 +232,12 @@ libjson-c3==0.12.1+ds-2+deb10u1
 libjson-glib-1.0-0==1.4.4-2
 libjson-glib-1.0-common==1.4.4-2
 libjsoncpp1==1.7.4-3
-libk5crypto3==1.17-3+deb10u5
+libk5crypto3==1.17-3+deb10u6
 libkeyutils1==1.6-6
 libkmod2==26-1
 libkpathsea6==2018.20181218.49446-1+deb10u2
-libkrb5-3==1.17-3+deb10u5
-libkrb5support0==1.17-3+deb10u5
+libkrb5-3==1.17-3+deb10u6
+libkrb5support0==1.17-3+deb10u6
 libksba8==1.3.5-2+deb10u2
 liblab-gamut1==2.40.1-6+deb10u1
 liblapack3==3.8.0-2

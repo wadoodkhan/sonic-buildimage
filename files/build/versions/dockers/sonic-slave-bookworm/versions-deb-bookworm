@@ -108,7 +108,7 @@ docbook-xsl==1.79.2+dfsg-2
 docker-buildx-plugin==0.10.5-1~debian.12~bookworm
 docker-ce==5:24.0.2-1~debian.12~bookworm
 docker-ce-cli==5:24.0.2-1~debian.12~bookworm
-docker-ce-rootless-extras==5:24.0.6-1~debian.12~bookworm
+docker-ce-rootless-extras==5:24.0.7-1~debian.12~bookworm
 docker-compose-plugin==2.18.1-1~debian.12~bookworm
 docutils-common==0.19+dfsg-6
 dosfstools==4.2-1
@@ -1213,8 +1213,8 @@ libsrt1.5-gnutls==1.5.1-1
 libssh-4==0.10.5-2
 libssh-gcrypt-4==0.10.5-2
 libssh2-1==1.10.0-3+b1
-libssl-dev==3.0.11-1~deb12u1
-libssl3==3.0.11-1~deb12u1
+libssl-dev==3.0.11-1~deb12u2
+libssl3==3.0.11-1~deb12u2
 libstdc++-12-dev==12.2.0-14
 libstemmer0d==2.2.0-2
 libstrictures-perl==2.000006-1
@@ -1552,7 +1552,7 @@ opensp==1.5.2-13+b2
 openssh-client==1:9.2p1-2+deb12u1
 openssh-server==1:9.2p1-2+deb12u1
 openssh-sftp-server==1:9.2p1-2+deb12u1
-openssl==3.0.11-1~deb12u1
+openssl==3.0.11-1~deb12u2
 ovmf==2022.11-6
 packagekit==1.2.6-5
 packagekit-tools==1.2.6-5
