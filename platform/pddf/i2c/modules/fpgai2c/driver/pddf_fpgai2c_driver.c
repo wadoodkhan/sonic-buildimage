@@ -187,7 +187,7 @@ exit:
 static void board_i2c_fpga_remove(struct i2c_client *client)
 {
     sysfs_remove_group(&client->dev.kobj, &fpgai2c_attribute_group);
-	board_i2c_fpga_remove_client(client);
+    board_i2c_fpga_remove_client(client);
 }
 
 static const struct i2c_device_id board_i2c_fpga_id[] = {

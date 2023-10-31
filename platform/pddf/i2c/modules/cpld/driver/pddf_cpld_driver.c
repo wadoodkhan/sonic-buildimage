@@ -247,6 +247,7 @@ static void board_i2c_cpld_remove(struct i2c_client *client)
 	{
 	    kfree(platdata);
 	}
+
 }
 
 static const struct i2c_device_id board_i2c_cpld_id[] = {
