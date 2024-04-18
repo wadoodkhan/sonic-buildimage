@@ -2,7 +2,7 @@
 SHELL = /bin/bash
 .SHELLFLAGS += -e
 
-MRVL_SAI_URL = https://github.com/Marvell-switching/sonic-marvell-binaries/raw/master/amd64/sai-plugin/$(MRVL_SAI)
+MRVL_SAI_URL = https://github.com/Marvell-switching/sonic-marvell-binaries/raw/master/amd64/sai-plugin/202311/$(MRVL_SAI)
 
 $(addprefix $(DEST)/, $(MRVL_SAI)): $(DEST)/% :
 	# get deb package
